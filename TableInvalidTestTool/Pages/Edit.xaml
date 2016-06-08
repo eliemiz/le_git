@@ -1,0 +1,35 @@
+﻿<Page x:Class="TableInvalidTestTool.Pages.Edit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Edit">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <GroupBox Header="Edit" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <TreeView Name="tree_view_sheets" SelectedItemChanged="OnSelectTreeViewSheets"/>
+                <DataGrid Name="data_grid_table" SelectionChanged="OnSelectDataGridTable"/>
+
+                <ListBox Margin="50, 0, 0, 0" Name="list_box_column_datas"/>
+            </StackPanel>
+        </GroupBox>
+
+        <DockPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="저장" Click="OnClickSave" Margin="2"/>
+                <Button Content="리스트 생성" Click="OnClickMakeList" Margin="2"/>
+                <Button Content="다음" Click="OnClickNext" Margin="2"/>
+                
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+    
+</Page>

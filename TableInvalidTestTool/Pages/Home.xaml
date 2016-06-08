@@ -1,0 +1,78 @@
+﻿<Page x:Class="TableInvalidTestTool.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+	  Title="Home">
+
+    <StackPanel Style="{StaticResource ContentRoot}">
+        <GroupBox Header="Excel FIles" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <StackPanel Margin="2">
+                <ListView x:Name="list_view_excel" ItemsSource="{Binding ExcelInfo}" HorizontalAlignment="Stretch" Height="200">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <CheckBox x:Name="check_button" IsChecked="{Binding Check}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <Grid>
+                                    <CheckBox x:Name="check_all" Content="Check" ToolTip="Select All" Click="OnClickCheckAllTable"/>
+                                </Grid>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+
+                            <GridViewColumn Header="Path" Width="Auto" DisplayMemberBinding="{Binding Path}"></GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <Button Content="추가" Click="OnClickAddTable" Margin="2"/>
+                    <Button Content="삭제" Click="OnClickRemoveTable" Margin="2"/>
+                </StackPanel>
+            </StackPanel>
+
+        </GroupBox>
+        <GroupBox>
+            <StackPanel Margin="2">
+                <ListView x:Name="list_view_tag" ItemsSource="{Binding TagInfo}" HorizontalAlignment="Stretch" Height="150">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <CheckBox x:Name="check_button_tag" IsChecked="{Binding Check}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                                <Grid>
+                                    <CheckBox x:Name="check_all_tag" Content="Check" ToolTip="Select All" Click="OnClickCheckAllTag" />
+                                </Grid>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Tag Name" Width="Auto" DisplayMemberBinding="{Binding TagName}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="text_box_tag" Margin="2" HorizontalAlignment="Left" Width="200"></TextBox>
+                    <Button Name="add_tag" Margin="2" HorizontalAlignment="Left" Content="Add Tag" Click="OnClickAddTag"></Button>
+                    <Button Name="remove_tag" Margin="2" HorizontalAlignment="Left" Content="Remove Tag" Click="OnClickRemoveTag"></Button>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <DockPanel Margin="2,20,2,2">
+            <Button Content="Start" Click="OnClickStart" />
+        </DockPanel>
+
+    </StackPanel>
+
+</Page>
